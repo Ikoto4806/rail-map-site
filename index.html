@@ -8,7 +8,7 @@
   :root{
     --bg:#0e1116; --panel:#151a22; --panel2:#1b2230; --line:#242e3d;
     --txt:#e6edf5; --dim:#8b9bb0; --accent:#3d8bfd; --accent2:#1f6feb;
-    --good:#2ea043; --badge:#233044;
+    --badge:#233044;
   }
   *{box-sizing:border-box}
   html,body{height:100%;margin:0}
@@ -18,13 +18,13 @@
   }
   /* ---------- sidebar ---------- */
   aside{
-    width:290px; flex:0 0 290px; background:var(--panel); border-right:1px solid var(--line);
+    width:280px; flex:0 0 280px; background:var(--panel); border-right:1px solid var(--line);
     display:flex; flex-direction:column; height:100%;
   }
-  .brand{padding:18px 16px 12px;border-bottom:1px solid var(--line)}
-  .brand h1{font-size:16px;margin:0 0 4px;letter-spacing:.5px}
+  .brand{padding:16px 16px 10px;border-bottom:1px solid var(--line)}
+  .brand h1{font-size:15px;margin:0 0 3px;letter-spacing:.4px}
   .brand p{margin:0;color:var(--dim);font-size:12px}
-  .search{padding:10px 12px;border-bottom:1px solid var(--line)}
+  .search{padding:9px 12px;border-bottom:1px solid var(--line)}
   .search input{
     width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);
     background:var(--panel2);color:var(--txt);outline:none;font-size:13px;
@@ -33,11 +33,11 @@
   .tree{flex:1;overflow-y:auto;padding:8px 8px 40px}
   .tree::-webkit-scrollbar{width:8px}
   .tree::-webkit-scrollbar-thumb{background:#26303f;border-radius:4px}
-  .prov{margin-top:6px}
+  .prov{margin-top:5px}
   .prov>button{
     width:100%;display:flex;align-items:center;gap:6px;justify-content:space-between;
     background:none;border:0;color:var(--dim);font-size:12px;font-weight:600;
-    padding:7px 8px;border-radius:6px;cursor:pointer;letter-spacing:.5px;
+    padding:6px 8px;border-radius:6px;cursor:pointer;letter-spacing:.5px;
   }
   .prov>button:hover{background:var(--panel2);color:var(--txt)}
   .prov .cnt{font-weight:400;opacity:.7}
@@ -45,7 +45,7 @@
   .cities.hide{display:none}
   .city{
     display:flex;align-items:center;gap:8px;background:none;border:0;text-align:left;
-    color:var(--txt);padding:7px 10px 7px 16px;border-radius:6px;cursor:pointer;font-size:13px;
+    color:var(--txt);padding:6px 10px 6px 16px;border-radius:6px;cursor:pointer;font-size:13px;
     width:100%;
   }
   .city:hover{background:var(--panel2)}
@@ -57,10 +57,10 @@
   /* ---------- main ---------- */
   main{flex:1;display:flex;flex-direction:column;min-width:0;height:100%}
   header{
-    padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;
-    gap:14px;flex-wrap:wrap;background:var(--panel);
+    padding:11px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;
+    gap:12px;flex-wrap:wrap;background:var(--panel);
   }
-  header .title{font-size:17px;font-weight:600}
+  header .title{font-size:16px;font-weight:600}
   header .prov-tag{
     font-size:11px;color:var(--dim);border:1px solid var(--line);padding:2px 8px;border-radius:20px;
   }
@@ -76,30 +76,60 @@
     background:#16202e;padding:5px 10px;border-radius:7px;white-space:nowrap;
   }
   .credit:hover{color:#cfe3ff;border-color:var(--accent2);background:#1b2a3e}
-  .meta{padding:8px 20px;color:var(--dim);font-size:12px;border-bottom:1px solid var(--line);
-        display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .meta{padding:7px 18px;color:var(--dim);font-size:12px;border-bottom:1px solid var(--line);
+        display:flex;gap:14px;flex-wrap:wrap;align-items:center;min-height:36px}
   .cross{display:inline-flex;align-items:center;gap:5px;background:var(--badge);
          border:1px solid #2f4055;padding:2px 9px;border-radius:20px;color:#a9c7ff}
   .stage{flex:1;position:relative;overflow:hidden;background:
       radial-gradient(circle at 30% 20%, #141a24 0%, #0b0e13 70%)}
+  /* ---------- gallery ---------- */
+  .gallery{
+    position:absolute;inset:0;overflow-y:auto;padding:18px 20px 60px;
+  }
+  .gallery::-webkit-scrollbar{width:10px}
+  .gallery::-webkit-scrollbar-thumb{background:#26303f;border-radius:5px}
+  .gsec{margin-bottom:26px}
+  .gsec h3{
+    margin:0 0 10px;font-size:13px;font-weight:600;color:#9fb3cc;letter-spacing:1px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .gsec h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .ggrid{
+    display:grid;gap:12px;
+    grid-template-columns:repeat(auto-fill,minmax(196px,1fr));
+  }
+  .card{
+    background:#121821;border:1px solid var(--line);border-radius:9px;overflow:hidden;
+    cursor:pointer;padding:0;text-align:left;color:var(--txt);display:flex;flex-direction:column;
+    transition:border-color .15s, transform .15s;
+  }
+  .card:hover{border-color:var(--accent2);transform:translateY(-2px)}
+  .card .ph{
+    width:100%;aspect-ratio:4/3;background:#f4f5f7;display:flex;align-items:center;
+    justify-content:center;overflow:hidden;
+  }
+  .card .ph img{width:100%;height:100%;object-fit:contain;display:block}
+  .card .cap{padding:7px 10px;display:flex;align-items:baseline;gap:6px}
+  .card .cap b{font-weight:600;font-size:13.5px}
+  .card .cap em{margin-left:auto;font-style:normal;font-size:10.5px;color:var(--dim)}
+  .card .tag{
+    font-size:10px;color:#7fd18b;border:1px solid #2c4a34;background:#16241a;
+    padding:0 5px;border-radius:4px;
+  }
+  /* ---------- detail ---------- */
   .canvas{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
           cursor:grab;overflow:hidden}
   .canvas.grabbing{cursor:grabbing}
   .canvas img{
     max-width:96%;max-height:96%;transform-origin:center center;
     box-shadow:0 12px 50px rgba(0,0,0,.65);border-radius:4px;background:#fff;
-    image-rendering:auto;user-select:none;-webkit-user-drag:none;
+    user-select:none;-webkit-user-drag:none;
   }
-  .canvas.fit img{max-width:96%;max-height:96%}
   .hint{position:absolute;left:16px;bottom:14px;color:var(--dim);font-size:12px;
         background:rgba(10,13,18,.75);padding:6px 10px;border-radius:8px;border:1px solid var(--line)}
   .zoomctl{position:absolute;right:16px;bottom:14px;display:flex;gap:6px}
-  .empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--dim);
-         flex-direction:column;gap:10px;text-align:center;padding:30px}
-  .empty b{color:var(--txt);font-size:15px}
   /* lightbox */
-  .lb{position:fixed;inset:0;background:rgba(5,7,10,.96);display:none;z-index:50;
-      flex-direction:column}
+  .lb{position:fixed;inset:0;background:rgba(5,7,10,.96);display:none;z-index:50;flex-direction:column}
   .lb.show{display:flex}
   .lb .bar{padding:10px 16px;display:flex;gap:12px;align-items:center;border-bottom:1px solid #1c2431}
   .lb .bar .t{font-size:14px}
@@ -111,6 +141,7 @@
     aside.open{transform:none}
     body{display:block}
     main{height:100vh}
+    .ggrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
   }
 </style>
 </head>
@@ -118,7 +149,7 @@
 <aside id="sidebar">
   <div class="brand">
     <h1>中国城市轨道交通线网图</h1>
-    <p><span id="stat"></span> · 官网高清图 · 本地保存</p>
+    <p><span id="stat"></span> · 高清原图 · 本地保存</p>
   </div>
   <div class="search"><input id="q" placeholder="搜索城市 / 省份，如 苏州、广东"></div>
   <div class="tree" id="tree"></div>
@@ -127,22 +158,19 @@
 <main>
   <header>
     <button class="btn" id="menuBtn" style="display:none">目录</button>
-    <span class="title" id="cName">请选择城市</span>
+    <span class="title" id="cName">全部城市线网图</span>
     <span class="prov-tag" id="cProv"></span>
     <span class="spacer"></span>
     <a class="credit" href="https://www.metroman.cn/maps" target="_blank" rel="noopener"
        title="线网图来源：地铁通 MetroMan">图源：metroman.cn</a>
-    <button class="btn" id="btnFit">适应窗口</button>
-    <button class="btn" id="btnFull">全屏大图</button>
+    <button class="btn" id="btnBack" style="display:none">返回总览</button>
+    <button class="btn" id="btnFit" style="display:none">适应窗口</button>
+    <button class="btn" id="btnFull" style="display:none">全屏大图</button>
   </header>
-  <div class="meta" id="meta">从左侧目录选择省份下的城市，查看该市轨道交通线网高清图。</div>
+  <div class="meta" id="meta">共 50 座城市的轨道交通线网高清图，点击任意图片查看大图。</div>
   <div class="stage">
-    <div class="canvas fit" id="canvas">
-      <div class="empty" id="empty">
-        <b>← 请在左侧选择城市</b>
-        <span>图片已下载到本地 assets 目录，不依赖任何外部链接</span>
-      </div>
-    </div>
+    <div class="gallery" id="gallery"></div>
+    <div class="canvas" id="canvas" style="display:none"></div>
     <div class="hint" id="hint" style="display:none">滚轮缩放 · 拖动平移 · 双击复位</div>
     <div class="zoomctl" id="zoomctl" style="display:none">
       <button class="btn" id="zin">＋</button>
@@ -156,14 +184,14 @@
   <div class="bar">
     <span class="t" id="lbTitle"></span>
     <span class="s" id="lbSub"></span>
-    <span class="spacer" style="flex:1"></span>
+    <span style="flex:1"></span>
     <button class="btn" id="lbClose">关闭 (Esc)</button>
   </div>
   <div class="view" id="lbView"><img id="lbImg" alt=""></div>
 </div>
 
 <script>
-const DATA = [{"province": "直辖市", "cities": [{"id": "beijing", "name": "北京", "img": "assets/beijing.jpg", "w": 2835, "h": 2126, "kb": 831, "source": "北京地铁官网 bjsubway.com", "srcUrl": "https://www.bjsubway.com/station/xltzs/", "cross": ["廊坊（燕郊）· 22号线(平谷线)"], "note": "", "updated": "2026-06-30", "official": true}, {"id": "chongqing", "name": "重庆", "img": "assets/chongqing.jpg", "w": 3400, "h": 3700, "kb": 1186, "source": "地铁通 MetroMan（社区整理，直辖市）", "srcUrl": "https://www.metroman.cn/maps/chongqing", "cross": ["广安（邻水）· 渝广线规划"], "note": "", "updated": "", "official": false}, {"id": "shanghai", "name": "上海", "img": "assets/shanghai.jpg", "w": 5497, "h": 7693, "kb": 3117, "source": "上海地铁官网 shmetro.com", "srcUrl": "https://www.shmetro.com/", "cross": ["昆山（花桥）· 11号线"], "note": "", "updated": "", "official": true}, {"id": "tianjin", "name": "天津", "img": "assets/tianjin.jpg", "w": 3950, "h": 2800, "kb": 967, "source": "地铁通 MetroMan（社区整理，直辖市）", "srcUrl": "https://www.metroman.cn/maps/tianjin", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "河北", "cities": [{"id": "shijiazhuang", "name": "石家庄", "img": "assets/shijiazhuang.jpg", "w": 2150, "h": 2300, "kb": 310, "source": "地铁通 MetroMan（社区整理，河北）", "srcUrl": "https://www.metroman.cn/maps/shijiazhuang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "山西", "cities": [{"id": "taiyuan", "name": "太原", "img": "assets/taiyuan.jpg", "w": 1750, "h": 2500, "kb": 245, "source": "地铁通 MetroMan（社区整理，山西）", "srcUrl": "https://www.metroman.cn/maps/taiyuan", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "内蒙古", "cities": [{"id": "hohhot", "name": "呼和浩特", "img": "assets/hohhot.jpg", "w": 1800, "h": 1800, "kb": 246, "source": "地铁通 MetroMan（社区整理，内蒙古）", "srcUrl": "https://www.metroman.cn/maps/hohhot", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "辽宁", "cities": [{"id": "dalian", "name": "大连", "img": "assets/dalian.jpg", "w": 3500, "h": 2100, "kb": 537, "source": "地铁通 MetroMan（社区整理，辽宁）", "srcUrl": "https://www.metroman.cn/maps/dalian", "cross": [], "note": "", "updated": "", "official": false}, {"id": "shenyang", "name": "沈阳", "img": "assets/shenyang.jpg", "w": 9449, "h": 6681, "kb": 5848, "source": "沈阳地铁官网 symtc.com", "srcUrl": "https://www.symtc.com/", "cross": [], "note": "", "updated": "2026-08-19", "official": true}]}, {"province": "吉林", "cities": [{"id": "changchun", "name": "长春", "img": "assets/changchun.jpg", "w": 2875, "h": 2625, "kb": 532, "source": "地铁通 MetroMan（社区整理，吉林）", "srcUrl": "https://www.metroman.cn/maps/changchun", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "黑龙江", "cities": [{"id": "harbin", "name": "哈尔滨", "img": "assets/harbin.jpg", "w": 1750, "h": 2100, "kb": 288, "source": "地铁通 MetroMan（社区整理，黑龙江）", "srcUrl": "https://www.metroman.cn/maps/harbin", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "江苏", "cities": [{"id": "changzhou", "name": "常州", "img": "assets/changzhou.jpg", "w": 1900, "h": 2150, "kb": 239, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/changzhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "nanjing", "name": "南京", "img": "assets/nanjing.jpg", "w": 3635, "h": 4525, "kb": 974, "source": "南京地铁官网 njmetro.com.cn", "srcUrl": "https://www.njmetro.com.cn/", "cross": ["句容 · S6宁句线", "马鞍山 · S9宁马线", "滁州 · S4宁滁线"], "note": "", "updated": "", "official": true}, {"id": "nantong", "name": "南通", "img": "assets/nantong.jpg", "w": 1650, "h": 1525, "kb": 225, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/nantong", "cross": [], "note": "", "updated": "", "official": false}, {"id": "suzhou", "name": "苏州", "img": "assets/suzhou.jpg", "w": 3475, "h": 3400, "kb": 908, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/suzhou", "cross": ["昆山/太仓 · 市域线", "上海（11号线花桥站衔接）"], "note": "", "updated": "", "official": false}, {"id": "wuxi", "name": "无锡", "img": "assets/wuxi.jpg", "w": 2200, "h": 2750, "kb": 439, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/wuxi", "cross": [], "note": "", "updated": "", "official": false}, {"id": "xuzhou", "name": "徐州", "img": "assets/xuzhou.jpg", "w": 2000, "h": 2000, "kb": 296, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/xuzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "浙江", "cities": [{"id": "hangzhou", "name": "杭州", "img": "assets/hangzhou.jpg", "w": 4875, "h": 3400, "kb": 1362, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/hangzhou", "cross": ["宁波 · 杭甬城际", "绍兴 · 杭绍城际(绍兴1号线)"], "note": "", "updated": "", "official": false}, {"id": "jinhua", "name": "金华", "img": "assets/jinhua.jpg", "w": 2200, "h": 1250, "kb": 163, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/jinhua", "cross": ["义乌/东阳 · 金义东线"], "note": "", "updated": "", "official": false}, {"id": "ningbo", "name": "宁波", "img": "assets/ningbo.jpg", "w": 2950, "h": 2300, "kb": 712, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/ningbo", "cross": ["杭州 · 杭甬城际"], "note": "", "updated": "", "official": false}, {"id": "shaoxing", "name": "绍兴", "img": "assets/hangzhou.jpg", "w": 4875, "h": 3400, "kb": 1362, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/hangzhou", "cross": ["杭州 · 杭绍城际"], "note": "与杭州共用一张线网图，图中包含杭绍城际（绍兴轨道交通1号线）", "updated": "", "official": false}, {"id": "taizhou", "name": "台州", "img": "assets/taizhou.jpg", "w": 1650, "h": 1600, "kb": 214, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/taizhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "wenzhou", "name": "温州", "img": "assets/wenzhou.jpg", "w": 1650, "h": 1750, "kb": 290, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/wenzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "安徽", "cities": [{"id": "hefei", "name": "合肥", "img": "assets/hefei.jpg", "w": 2900, "h": 2800, "kb": 605, "source": "地铁通 MetroMan（社区整理，安徽）", "srcUrl": "https://www.metroman.cn/maps/hefei", "cross": [], "note": "", "updated": "", "official": false}, {"id": "wuhu", "name": "芜湖", "img": "assets/wuhu.jpg", "w": 1650, "h": 1800, "kb": 172, "source": "地铁通 MetroMan（社区整理，安徽）", "srcUrl": "https://www.metroman.cn/maps/wuhu", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "福建", "cities": [{"id": "fuzhou", "name": "福州", "img": "assets/fuzhou.jpg", "w": 3600, "h": 2200, "kb": 502, "source": "地铁通 MetroMan（社区整理，福建）", "srcUrl": "https://www.metroman.cn/maps/fuzhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "xiamen", "name": "厦门", "img": "assets/xiamen.jpg", "w": 3200, "h": 1900, "kb": 658, "source": "地铁通 MetroMan（社区整理，福建）", "srcUrl": "https://www.metroman.cn/maps/xiamen", "cross": ["漳州 · 厦门地铁6号线角美段"], "note": "", "updated": "", "official": false}]}, {"province": "江西", "cities": [{"id": "nanchang", "name": "南昌", "img": "assets/nanchang.jpg", "w": 2800, "h": 2700, "kb": 489, "source": "地铁通 MetroMan（社区整理，江西）", "srcUrl": "https://www.metroman.cn/maps/nanchang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "山东", "cities": [{"id": "jinan", "name": "济南", "img": "assets/jinan.jpg", "w": 3850, "h": 2250, "kb": 521, "source": "地铁通 MetroMan（社区整理，山东）", "srcUrl": "https://www.metroman.cn/maps/jinan", "cross": [], "note": "", "updated": "", "official": false}, {"id": "qingdao", "name": "青岛", "img": "assets/qingdao.jpg", "w": 4500, "h": 3750, "kb": 953, "source": "地铁通 MetroMan（社区整理，山东）", "srcUrl": "https://www.metroman.cn/maps/qingdao", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "河南", "cities": [{"id": "luoyang", "name": "洛阳", "img": "assets/luoyang.jpg", "w": 1850, "h": 1475, "kb": 170, "source": "地铁通 MetroMan（社区整理，河南）", "srcUrl": "https://www.metroman.cn/maps/luoyang", "cross": [], "note": "", "updated": "", "official": false}, {"id": "zhengzhou", "name": "郑州", "img": "assets/zhengzhou.jpg", "w": 5735, "h": 3219, "kb": 2479, "source": "郑州地铁官网 zzmetro.cn", "srcUrl": "https://www.zzmetro.cn/", "cross": ["许昌 · 郑许线"], "note": "", "updated": "", "official": true}]}, {"province": "湖北", "cities": [{"id": "wuhan", "name": "武汉", "img": "assets/wuhan.jpg", "w": 4300, "h": 3425, "kb": 1320, "source": "地铁通 MetroMan（社区整理，湖北）", "srcUrl": "https://www.metroman.cn/maps/wuhan", "cross": ["鄂州 · 11号线葛店段"], "note": "", "updated": "", "official": false}]}, {"province": "湖南", "cities": [{"id": "changsha", "name": "长沙", "img": "assets/changsha.jpg", "w": 3325, "h": 2500, "kb": 708, "source": "地铁通 MetroMan（社区整理，湖南）", "srcUrl": "https://www.metroman.cn/maps/changsha", "cross": ["湘潭 · 长株潭西环线", "株洲 · 长株潭城际"], "note": "", "updated": "", "official": false}]}, {"province": "广东", "cities": [{"id": "dongguan", "name": "东莞", "img": "assets/dongguan.jpg", "w": 2300, "h": 1650, "kb": 256, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/dongguan", "cross": ["广州 · 28号线规划", "深圳 · 6号线支线"], "note": "", "updated": "", "official": false}, {"id": "foshan", "name": "佛山", "img": "assets/foshan.jpg", "w": 4500, "h": 4000, "kb": 1592, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/guangzhou", "cross": ["广州 · 广佛线等跨市线路"], "note": "与广州共用一张线网图，图中包含广佛线、2号线、3号线等广佛同城线路", "updated": "", "official": false}, {"id": "guangzhou", "name": "广州", "img": "assets/foshan.jpg", "w": 4500, "h": 4000, "kb": 1592, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/guangzhou", "cross": ["佛山 · 广佛线", "东莞 · 广州28号线规划"], "note": "", "updated": "", "official": false}, {"id": "shenzhen", "name": "深圳", "img": "assets/shenzhen.jpg", "w": 4600, "h": 2900, "kb": 1282, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/shenzhen", "cross": ["东莞 · 6号线支线", "惠州 · 14号线延长线规划"], "note": "", "updated": "", "official": false}]}, {"province": "广西", "cities": [{"id": "nanning", "name": "南宁", "img": "assets/nanning.jpg", "w": 2650, "h": 2000, "kb": 394, "source": "地铁通 MetroMan（社区整理，广西）", "srcUrl": "https://www.metroman.cn/maps/nanning", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "四川", "cities": [{"id": "chengdu", "name": "成都", "img": "assets/chengdu.jpg", "w": 10749, "h": 8063, "kb": 4399, "source": "成都轨道交通 chengdurail.com", "srcUrl": "https://www.chengdurail.com/", "cross": ["资阳 · 资阳线(S3)"], "note": "", "updated": "2026-10-20", "official": true}]}, {"province": "贵州", "cities": [{"id": "guiyang", "name": "贵阳", "img": "assets/guiyang.jpg", "w": 2050, "h": 2600, "kb": 402, "source": "地铁通 MetroMan（社区整理，贵州）", "srcUrl": "https://www.metroman.cn/maps/guiyang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "云南", "cities": [{"id": "kunming", "name": "昆明", "img": "assets/kunming.jpg", "w": 2700, "h": 2375, "kb": 546, "source": "地铁通 MetroMan（社区整理，云南）", "srcUrl": "https://www.metroman.cn/maps/kunming", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "陕西", "cities": [{"id": "xian", "name": "西安", "img": "assets/xian.jpg", "w": 3950, "h": 3000, "kb": 856, "source": "地铁通 MetroMan（社区整理，陕西）", "srcUrl": "https://www.metroman.cn/maps/xian", "cross": ["咸阳 · 1号线三期"], "note": "", "updated": "", "official": false}]}, {"province": "甘肃", "cities": [{"id": "lanzhou", "name": "兰州", "img": "assets/lanzhou.jpg", "w": 3100, "h": 1350, "kb": 220, "source": "地铁通 MetroMan（社区整理，甘肃）", "srcUrl": "https://www.metroman.cn/maps/lanzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "新疆", "cities": [{"id": "urumqi", "name": "乌鲁木齐", "img": "assets/urumqi.jpg", "w": 2050, "h": 2050, "kb": 201, "source": "地铁通 MetroMan（社区整理，新疆）", "srcUrl": "https://www.metroman.cn/maps/urumqi", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "香港特别行政区", "cities": [{"id": "hongkong", "name": "香港", "img": "assets/hongkong.jpg", "w": 2950, "h": 2550, "kb": 802, "source": "地铁通 MetroMan（社区整理，香港特别行政区）", "srcUrl": "https://www.metroman.cn/maps/hongkong", "cross": ["深圳 · 4号线(福田口岸)", "深圳 · 罗湖/落马洲口岸衔接"], "note": "", "updated": "", "official": false}]}, {"province": "澳门特别行政区", "cities": [{"id": "macau", "name": "澳门", "img": "assets/macau.jpg", "w": 1400, "h": 1900, "kb": 267, "source": "地铁通 MetroMan（社区整理，澳门特别行政区）", "srcUrl": "https://www.metroman.cn/maps/macau", "cross": ["珠海 · 横琴口岸衔接"], "note": "", "updated": "", "official": false}]}, {"province": "台湾省", "cities": [{"id": "kaohsiung", "name": "高雄", "img": "assets/kaohsiung.jpg", "w": 1800, "h": 2550, "kb": 378, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/kaohsiung", "cross": ["台南 · 红线延伸规划"], "note": "", "updated": "", "official": false}, {"id": "taichung", "name": "台中", "img": "assets/taichung.jpg", "w": 2000, "h": 1700, "kb": 178, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/taichung", "cross": [], "note": "", "updated": "", "official": false}, {"id": "taipei", "name": "台北", "img": "assets/taipei.jpg", "w": 4050, "h": 2650, "kb": 874, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/taipei", "cross": ["新北 · 环状线/淡海轻轨"], "note": "", "updated": "", "official": false}]}];
+const DATA = [{"province": "直辖市", "cities": [{"id": "beijing", "name": "北京", "img": "assets/beijing.jpg", "thumb": "assets/thumb/beijing.jpg", "w": 2835, "h": 2126, "kb": 831, "source": "北京地铁官网 bjsubway.com", "srcUrl": "https://www.bjsubway.com/station/xltzs/", "cross": ["廊坊（燕郊）· 22号线(平谷线)"], "note": "", "updated": "2026-06-30", "official": true}, {"id": "chongqing", "name": "重庆", "img": "assets/chongqing.jpg", "thumb": "assets/thumb/chongqing.jpg", "w": 3400, "h": 3700, "kb": 1186, "source": "地铁通 MetroMan（社区整理，直辖市）", "srcUrl": "https://www.metroman.cn/maps/chongqing", "cross": ["广安（邻水）· 渝广线规划"], "note": "", "updated": "", "official": false}, {"id": "shanghai", "name": "上海", "img": "assets/shanghai.jpg", "thumb": "assets/thumb/shanghai.jpg", "w": 5497, "h": 7693, "kb": 3117, "source": "上海地铁官网 shmetro.com", "srcUrl": "https://www.shmetro.com/", "cross": ["昆山（花桥）· 11号线"], "note": "", "updated": "", "official": true}, {"id": "tianjin", "name": "天津", "img": "assets/tianjin.jpg", "thumb": "assets/thumb/tianjin.jpg", "w": 3950, "h": 2800, "kb": 967, "source": "地铁通 MetroMan（社区整理，直辖市）", "srcUrl": "https://www.metroman.cn/maps/tianjin", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "河北", "cities": [{"id": "shijiazhuang", "name": "石家庄", "img": "assets/shijiazhuang.jpg", "thumb": "assets/thumb/shijiazhuang.jpg", "w": 2150, "h": 2300, "kb": 310, "source": "地铁通 MetroMan（社区整理，河北）", "srcUrl": "https://www.metroman.cn/maps/shijiazhuang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "山西", "cities": [{"id": "taiyuan", "name": "太原", "img": "assets/taiyuan.jpg", "thumb": "assets/thumb/taiyuan.jpg", "w": 1750, "h": 2500, "kb": 245, "source": "地铁通 MetroMan（社区整理，山西）", "srcUrl": "https://www.metroman.cn/maps/taiyuan", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "内蒙古", "cities": [{"id": "hohhot", "name": "呼和浩特", "img": "assets/hohhot.jpg", "thumb": "assets/thumb/hohhot.jpg", "w": 1800, "h": 1800, "kb": 246, "source": "地铁通 MetroMan（社区整理，内蒙古）", "srcUrl": "https://www.metroman.cn/maps/hohhot", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "辽宁", "cities": [{"id": "dalian", "name": "大连", "img": "assets/dalian.jpg", "thumb": "assets/thumb/dalian.jpg", "w": 3500, "h": 2100, "kb": 537, "source": "地铁通 MetroMan（社区整理，辽宁）", "srcUrl": "https://www.metroman.cn/maps/dalian", "cross": [], "note": "", "updated": "", "official": false}, {"id": "shenyang", "name": "沈阳", "img": "assets/shenyang.jpg", "thumb": "assets/thumb/shenyang.jpg", "w": 9449, "h": 6681, "kb": 5848, "source": "沈阳地铁官网 symtc.com", "srcUrl": "https://www.symtc.com/", "cross": [], "note": "", "updated": "2026-08-19", "official": true}]}, {"province": "吉林", "cities": [{"id": "changchun", "name": "长春", "img": "assets/changchun.jpg", "thumb": "assets/thumb/changchun.jpg", "w": 2875, "h": 2625, "kb": 532, "source": "地铁通 MetroMan（社区整理，吉林）", "srcUrl": "https://www.metroman.cn/maps/changchun", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "黑龙江", "cities": [{"id": "harbin", "name": "哈尔滨", "img": "assets/harbin.jpg", "thumb": "assets/thumb/harbin.jpg", "w": 1750, "h": 2100, "kb": 288, "source": "地铁通 MetroMan（社区整理，黑龙江）", "srcUrl": "https://www.metroman.cn/maps/harbin", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "江苏", "cities": [{"id": "changzhou", "name": "常州", "img": "assets/changzhou.jpg", "thumb": "assets/thumb/changzhou.jpg", "w": 1900, "h": 2150, "kb": 239, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/changzhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "nanjing", "name": "南京", "img": "assets/nanjing.jpg", "thumb": "assets/thumb/nanjing.jpg", "w": 3635, "h": 4525, "kb": 974, "source": "南京地铁官网 njmetro.com.cn", "srcUrl": "https://www.njmetro.com.cn/", "cross": ["句容 · S6宁句线", "马鞍山 · S9宁马线", "滁州 · S4宁滁线"], "note": "", "updated": "", "official": true}, {"id": "nantong", "name": "南通", "img": "assets/nantong.jpg", "thumb": "assets/thumb/nantong.jpg", "w": 1650, "h": 1525, "kb": 225, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/nantong", "cross": [], "note": "", "updated": "", "official": false}, {"id": "suzhou", "name": "苏州", "img": "assets/suzhou.jpg", "thumb": "assets/thumb/suzhou.jpg", "w": 3475, "h": 3400, "kb": 908, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/suzhou", "cross": ["昆山/太仓 · 市域线", "上海（11号线花桥站衔接）"], "note": "", "updated": "", "official": false}, {"id": "wuxi", "name": "无锡", "img": "assets/wuxi.jpg", "thumb": "assets/thumb/wuxi.jpg", "w": 2200, "h": 2750, "kb": 439, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/wuxi", "cross": [], "note": "", "updated": "", "official": false}, {"id": "xuzhou", "name": "徐州", "img": "assets/xuzhou.jpg", "thumb": "assets/thumb/xuzhou.jpg", "w": 2000, "h": 2000, "kb": 296, "source": "地铁通 MetroMan（社区整理，江苏）", "srcUrl": "https://www.metroman.cn/maps/xuzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "浙江", "cities": [{"id": "hangzhou", "name": "杭州", "img": "assets/hangzhou.jpg", "thumb": "assets/thumb/hangzhou.jpg", "w": 4875, "h": 3400, "kb": 1362, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/hangzhou", "cross": ["宁波 · 杭甬城际", "绍兴 · 杭绍城际(绍兴1号线)"], "note": "", "updated": "", "official": false}, {"id": "jinhua", "name": "金华", "img": "assets/jinhua.jpg", "thumb": "assets/thumb/jinhua.jpg", "w": 2200, "h": 1250, "kb": 163, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/jinhua", "cross": ["义乌/东阳 · 金义东线"], "note": "", "updated": "", "official": false}, {"id": "ningbo", "name": "宁波", "img": "assets/ningbo.jpg", "thumb": "assets/thumb/ningbo.jpg", "w": 2950, "h": 2300, "kb": 712, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/ningbo", "cross": ["杭州 · 杭甬城际"], "note": "", "updated": "", "official": false}, {"id": "shaoxing", "name": "绍兴", "img": "assets/hangzhou.jpg", "thumb": "assets/thumb/hangzhou.jpg", "w": 4875, "h": 3400, "kb": 1362, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/hangzhou", "cross": ["杭州 · 杭绍城际"], "note": "与杭州共用一张线网图，图中包含杭绍城际（绍兴轨道交通1号线）", "updated": "", "official": false}, {"id": "taizhou", "name": "台州", "img": "assets/taizhou.jpg", "thumb": "assets/thumb/taizhou.jpg", "w": 1650, "h": 1600, "kb": 214, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/taizhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "wenzhou", "name": "温州", "img": "assets/wenzhou.jpg", "thumb": "assets/thumb/wenzhou.jpg", "w": 1650, "h": 1750, "kb": 290, "source": "地铁通 MetroMan（社区整理，浙江）", "srcUrl": "https://www.metroman.cn/maps/wenzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "安徽", "cities": [{"id": "hefei", "name": "合肥", "img": "assets/hefei.jpg", "thumb": "assets/thumb/hefei.jpg", "w": 2900, "h": 2800, "kb": 605, "source": "地铁通 MetroMan（社区整理，安徽）", "srcUrl": "https://www.metroman.cn/maps/hefei", "cross": [], "note": "", "updated": "", "official": false}, {"id": "wuhu", "name": "芜湖", "img": "assets/wuhu.jpg", "thumb": "assets/thumb/wuhu.jpg", "w": 1650, "h": 1800, "kb": 172, "source": "地铁通 MetroMan（社区整理，安徽）", "srcUrl": "https://www.metroman.cn/maps/wuhu", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "福建", "cities": [{"id": "fuzhou", "name": "福州", "img": "assets/fuzhou.jpg", "thumb": "assets/thumb/fuzhou.jpg", "w": 3600, "h": 2200, "kb": 502, "source": "地铁通 MetroMan（社区整理，福建）", "srcUrl": "https://www.metroman.cn/maps/fuzhou", "cross": [], "note": "", "updated": "", "official": false}, {"id": "xiamen", "name": "厦门", "img": "assets/xiamen.jpg", "thumb": "assets/thumb/xiamen.jpg", "w": 3200, "h": 1900, "kb": 658, "source": "地铁通 MetroMan（社区整理，福建）", "srcUrl": "https://www.metroman.cn/maps/xiamen", "cross": ["漳州 · 厦门地铁6号线角美段"], "note": "", "updated": "", "official": false}]}, {"province": "江西", "cities": [{"id": "nanchang", "name": "南昌", "img": "assets/nanchang.jpg", "thumb": "assets/thumb/nanchang.jpg", "w": 2800, "h": 2700, "kb": 489, "source": "地铁通 MetroMan（社区整理，江西）", "srcUrl": "https://www.metroman.cn/maps/nanchang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "山东", "cities": [{"id": "jinan", "name": "济南", "img": "assets/jinan.jpg", "thumb": "assets/thumb/jinan.jpg", "w": 3850, "h": 2250, "kb": 521, "source": "地铁通 MetroMan（社区整理，山东）", "srcUrl": "https://www.metroman.cn/maps/jinan", "cross": [], "note": "", "updated": "", "official": false}, {"id": "qingdao", "name": "青岛", "img": "assets/qingdao.jpg", "thumb": "assets/thumb/qingdao.jpg", "w": 4500, "h": 3750, "kb": 953, "source": "地铁通 MetroMan（社区整理，山东）", "srcUrl": "https://www.metroman.cn/maps/qingdao", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "河南", "cities": [{"id": "luoyang", "name": "洛阳", "img": "assets/luoyang.jpg", "thumb": "assets/thumb/luoyang.jpg", "w": 1850, "h": 1475, "kb": 170, "source": "地铁通 MetroMan（社区整理，河南）", "srcUrl": "https://www.metroman.cn/maps/luoyang", "cross": [], "note": "", "updated": "", "official": false}, {"id": "zhengzhou", "name": "郑州", "img": "assets/zhengzhou.jpg", "thumb": "assets/thumb/zhengzhou.jpg", "w": 5735, "h": 3219, "kb": 2479, "source": "郑州地铁官网 zzmetro.cn", "srcUrl": "https://www.zzmetro.cn/", "cross": ["许昌 · 郑许线"], "note": "", "updated": "", "official": true}]}, {"province": "湖北", "cities": [{"id": "wuhan", "name": "武汉", "img": "assets/wuhan.jpg", "thumb": "assets/thumb/wuhan.jpg", "w": 4300, "h": 3425, "kb": 1320, "source": "地铁通 MetroMan（社区整理，湖北）", "srcUrl": "https://www.metroman.cn/maps/wuhan", "cross": ["鄂州 · 11号线葛店段"], "note": "", "updated": "", "official": false}]}, {"province": "湖南", "cities": [{"id": "changsha", "name": "长沙", "img": "assets/changsha.jpg", "thumb": "assets/thumb/changsha.jpg", "w": 3325, "h": 2500, "kb": 708, "source": "地铁通 MetroMan（社区整理，湖南）", "srcUrl": "https://www.metroman.cn/maps/changsha", "cross": ["湘潭 · 长株潭西环线", "株洲 · 长株潭城际"], "note": "", "updated": "", "official": false}]}, {"province": "广东", "cities": [{"id": "dongguan", "name": "东莞", "img": "assets/dongguan.jpg", "thumb": "assets/thumb/dongguan.jpg", "w": 2300, "h": 1650, "kb": 256, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/dongguan", "cross": ["广州 · 28号线规划", "深圳 · 6号线支线"], "note": "", "updated": "", "official": false}, {"id": "foshan", "name": "佛山", "img": "assets/foshan.jpg", "thumb": "assets/thumb/foshan.jpg", "w": 4500, "h": 4000, "kb": 1592, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/guangzhou", "cross": ["广州 · 广佛线等跨市线路"], "note": "与广州共用一张线网图，图中包含广佛线、2号线、3号线等广佛同城线路", "updated": "", "official": false}, {"id": "guangzhou", "name": "广州", "img": "assets/foshan.jpg", "thumb": "assets/thumb/foshan.jpg", "w": 4500, "h": 4000, "kb": 1592, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/guangzhou", "cross": ["佛山 · 广佛线", "东莞 · 广州28号线规划"], "note": "", "updated": "", "official": false}, {"id": "shenzhen", "name": "深圳", "img": "assets/shenzhen.jpg", "thumb": "assets/thumb/shenzhen.jpg", "w": 4600, "h": 2900, "kb": 1282, "source": "地铁通 MetroMan（社区整理，广东）", "srcUrl": "https://www.metroman.cn/maps/shenzhen", "cross": ["东莞 · 6号线支线", "惠州 · 14号线延长线规划"], "note": "", "updated": "", "official": false}]}, {"province": "广西", "cities": [{"id": "nanning", "name": "南宁", "img": "assets/nanning.jpg", "thumb": "assets/thumb/nanning.jpg", "w": 2650, "h": 2000, "kb": 394, "source": "地铁通 MetroMan（社区整理，广西）", "srcUrl": "https://www.metroman.cn/maps/nanning", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "四川", "cities": [{"id": "chengdu", "name": "成都", "img": "assets/chengdu.jpg", "thumb": "assets/thumb/chengdu.jpg", "w": 10749, "h": 8063, "kb": 4399, "source": "成都轨道交通 chengdurail.com", "srcUrl": "https://www.chengdurail.com/", "cross": ["资阳 · 资阳线(S3)"], "note": "", "updated": "2026-10-20", "official": true}]}, {"province": "贵州", "cities": [{"id": "guiyang", "name": "贵阳", "img": "assets/guiyang.jpg", "thumb": "assets/thumb/guiyang.jpg", "w": 2050, "h": 2600, "kb": 402, "source": "地铁通 MetroMan（社区整理，贵州）", "srcUrl": "https://www.metroman.cn/maps/guiyang", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "云南", "cities": [{"id": "kunming", "name": "昆明", "img": "assets/kunming.jpg", "thumb": "assets/thumb/kunming.jpg", "w": 2700, "h": 2375, "kb": 546, "source": "地铁通 MetroMan（社区整理，云南）", "srcUrl": "https://www.metroman.cn/maps/kunming", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "陕西", "cities": [{"id": "xian", "name": "西安", "img": "assets/xian.jpg", "thumb": "assets/thumb/xian.jpg", "w": 3950, "h": 3000, "kb": 856, "source": "地铁通 MetroMan（社区整理，陕西）", "srcUrl": "https://www.metroman.cn/maps/xian", "cross": ["咸阳 · 1号线三期"], "note": "", "updated": "", "official": false}]}, {"province": "甘肃", "cities": [{"id": "lanzhou", "name": "兰州", "img": "assets/lanzhou.jpg", "thumb": "assets/thumb/lanzhou.jpg", "w": 3100, "h": 1350, "kb": 220, "source": "地铁通 MetroMan（社区整理，甘肃）", "srcUrl": "https://www.metroman.cn/maps/lanzhou", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "新疆", "cities": [{"id": "urumqi", "name": "乌鲁木齐", "img": "assets/urumqi.jpg", "thumb": "assets/thumb/urumqi.jpg", "w": 2050, "h": 2050, "kb": 201, "source": "地铁通 MetroMan（社区整理，新疆）", "srcUrl": "https://www.metroman.cn/maps/urumqi", "cross": [], "note": "", "updated": "", "official": false}]}, {"province": "香港特别行政区", "cities": [{"id": "hongkong", "name": "香港", "img": "assets/hongkong.jpg", "thumb": "assets/thumb/hongkong.jpg", "w": 2950, "h": 2550, "kb": 802, "source": "地铁通 MetroMan（社区整理，香港特别行政区）", "srcUrl": "https://www.metroman.cn/maps/hongkong", "cross": ["深圳 · 4号线(福田口岸)", "深圳 · 罗湖/落马洲口岸衔接"], "note": "", "updated": "", "official": false}]}, {"province": "澳门特别行政区", "cities": [{"id": "macau", "name": "澳门", "img": "assets/macau.jpg", "thumb": "assets/thumb/macau.jpg", "w": 1400, "h": 1900, "kb": 267, "source": "地铁通 MetroMan（社区整理，澳门特别行政区）", "srcUrl": "https://www.metroman.cn/maps/macau", "cross": ["珠海 · 横琴口岸衔接"], "note": "", "updated": "", "official": false}]}, {"province": "台湾省", "cities": [{"id": "kaohsiung", "name": "高雄", "img": "assets/kaohsiung.jpg", "thumb": "assets/thumb/kaohsiung.jpg", "w": 1800, "h": 2550, "kb": 378, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/kaohsiung", "cross": ["台南 · 红线延伸规划"], "note": "", "updated": "", "official": false}, {"id": "taichung", "name": "台中", "img": "assets/taichung.jpg", "thumb": "assets/thumb/taichung.jpg", "w": 2000, "h": 1700, "kb": 178, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/taichung", "cross": [], "note": "", "updated": "", "official": false}, {"id": "taipei", "name": "台北", "img": "assets/taipei.jpg", "thumb": "assets/thumb/taipei.jpg", "w": 4050, "h": 2650, "kb": 874, "source": "地铁通 MetroMan（社区整理，台湾省）", "srcUrl": "https://www.metroman.cn/maps/taipei", "cross": ["新北 · 环状线/淡海轻轨"], "note": "", "updated": "", "official": false}]}];
 
 const state = { city:null, scale:1, tx:0, ty:0, fit:true };
 
@@ -195,6 +223,53 @@ function buildTree(){
     DATA.reduce((a,g)=>a+g.cities.length,0) + ' 城 · ' + DATA.length + ' 省级区划';
 }
 
+function buildGallery(){
+  const gal = document.getElementById('gallery');
+  gal.innerHTML = '';
+  DATA.forEach(g=>{
+    const sec = document.createElement('div');
+    sec.className = 'gsec';
+    sec.dataset.prov = g.province;
+    const h = document.createElement('h3');
+    h.textContent = g.province + ' · ' + g.cities.length;
+    sec.appendChild(h);
+    const grid = document.createElement('div');
+    grid.className = 'ggrid';
+    g.cities.forEach(c=>{
+      const card = document.createElement('button');
+      card.className = 'card';
+      card.dataset.id = c.id;
+      card.dataset.name = c.name + ' ' + g.province;
+      card.innerHTML =
+        `<div class="ph"><img loading="lazy" src="${c.thumb}" alt="${c.name}轨道交通线网图"></div>` +
+        `<div class="cap"><b>${c.name}</b>` +
+        (c.official ? `<span class="tag">官网原图</span>` : '') +
+        `<em>${c.w}×${c.h}</em></div>`;
+      card.onclick = ()=>selectCity(c, g.province);
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+    gal.appendChild(sec);
+  });
+}
+
+function showGallery(){
+  state.city = null;
+  document.getElementById('gallery').style.display = 'block';
+  document.getElementById('canvas').style.display = 'none';
+  document.getElementById('hint').style.display = 'none';
+  document.getElementById('zoomctl').style.display = 'none';
+  document.getElementById('btnBack').style.display = 'none';
+  document.getElementById('btnFit').style.display = 'none';
+  document.getElementById('btnFull').style.display = 'none';
+  document.getElementById('cName').textContent = '全部城市线网图';
+  document.getElementById('cProv').textContent = '';
+  const n = DATA.reduce((a,g)=>a+g.cities.length,0);
+  document.getElementById('meta').innerHTML =
+    `共 ${n} 座城市的轨道交通线网高清图，点击任意图片查看大图。`;
+  document.querySelectorAll('.city').forEach(e=>e.classList.remove('active'));
+}
+
 function selectCity(c, prov){
   state.city = c; state.fit = true; state.scale = 1; state.tx = 0; state.ty = 0;
   document.querySelectorAll('.city').forEach(e=>e.classList.toggle('active', e.dataset.id === c.id));
@@ -206,24 +281,27 @@ function selectCity(c, prov){
   const note = c.note ? `<span>${c.note}</span>` : '';
   meta.innerHTML = `${cross}
      <span>尺寸 ${c.w} × ${c.h}</span>
-     <span>本地文件 ${c.kb} KB</span>
+     <span>${c.kb} KB</span>
      ${c.source ? `<span>来源：${c.source}</span>` : ''}
      ${c.updated ? `<span>版本：${c.updated}</span>` : ''} ${note}`;
 
+  document.getElementById('gallery').style.display = 'none';
   const canvas = document.getElementById('canvas');
+  canvas.style.display = 'flex';
   canvas.classList.add('fit');
   canvas.innerHTML = `<img id="bigimg" src="${c.img}" alt="${c.name}轨道交通线网图">`;
   document.getElementById('hint').style.display = 'block';
   document.getElementById('zoomctl').style.display = 'flex';
+  document.getElementById('btnBack').style.display = 'inline-block';
+  document.getElementById('btnFit').style.display = 'inline-block';
+  document.getElementById('btnFull').style.display = 'inline-block';
   const img = document.getElementById('bigimg');
   img.onload = ()=>apply();
-  img.ondblclick = ()=>{ state.fit=true; apply(); };
+  img.ondblclick = ()=>{ state.fit=true; canvas.classList.add('fit'); apply(); };
 
-  // zoom / pan
   canvas.onwheel = ev=>{
     ev.preventDefault();
-    state.fit = false;
-    canvas.classList.remove('fit');
+    state.fit = false; canvas.classList.remove('fit');
     const f = ev.deltaY < 0 ? 1.15 : 1/1.15;
     state.scale = Math.min(14, Math.max(0.08, state.scale * f));
     apply();
@@ -243,6 +321,7 @@ function selectCity(c, prov){
     apply();
   };
   window.onmouseup = ()=>{ drag=null; canvas.classList.remove('grabbing'); };
+  window.scrollTo(0,0);
 }
 
 function apply(){
@@ -259,6 +338,7 @@ function apply(){
   }
 }
 
+document.getElementById('btnBack').onclick = showGallery;
 document.getElementById('btnFit').onclick = ()=>{
   state.fit = true;
   document.getElementById('canvas').classList.add('fit');
@@ -275,12 +355,15 @@ document.getElementById('btnFull').onclick = ()=>{
   document.getElementById('lbSub').textContent = `${state.city.w}×${state.city.h} · ${state.city.kb}KB · 滚动查看原始分辨率`;
   const im = document.getElementById('lbImg');
   im.src = state.city.img;
-  im.style.width = Math.min(state.city.w, screen.width*1.6) + 'px';
+  im.style.width = Math.min(state.city.w, screen.width * 1.6) + 'px';
   lb.classList.add('show');
 };
 document.getElementById('lbClose').onclick = ()=>document.getElementById('lb').classList.remove('show');
 window.addEventListener('keydown', e=>{
-  if(e.key==='Escape') document.getElementById('lb').classList.remove('show');
+  if(e.key==='Escape'){
+    document.getElementById('lb').classList.remove('show');
+    if(document.getElementById('lb').classList.contains('show')===false && state.city) showGallery();
+  }
   if(e.key==='f' || e.key==='F') document.getElementById('btnFull').click();
 });
 
@@ -296,6 +379,15 @@ document.getElementById('q').oninput = ev=>{
     w.style.display = shown ? '' : 'none';
     w.querySelector('.cities').classList.remove('hide');
   });
+  document.querySelectorAll('.gsec').forEach(sec=>{
+    let shown = 0;
+    sec.querySelectorAll('.card').forEach(card=>{
+      const hit = !k || card.dataset.name.toLowerCase().includes(k);
+      card.style.display = hit ? '' : 'none';
+      if(hit) shown++;
+    });
+    sec.style.display = shown ? '' : 'none';
+  });
 };
 
 document.getElementById('menuBtn').onclick = ()=>document.getElementById('sidebar').classList.toggle('open');
@@ -303,6 +395,8 @@ function resp(){ document.getElementById('menuBtn').style.display = window.inner
 window.addEventListener('resize', resp); resp();
 
 buildTree();
+buildGallery();
+showGallery();
 </script>
 </body>
 </html>
