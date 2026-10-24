@@ -71,6 +71,11 @@
   }
   .btn:hover{border-color:var(--accent2);color:#fff}
   .btn.on{background:var(--accent2);border-color:var(--accent2);color:#fff}
+  .credit{
+    font-size:12px;color:#7ea6db;text-decoration:none;border:1px solid #2b3f58;
+    background:#16202e;padding:5px 10px;border-radius:7px;white-space:nowrap;
+  }
+  .credit:hover{color:#cfe3ff;border-color:var(--accent2);background:#1b2a3e}
   .meta{padding:8px 20px;color:var(--dim);font-size:12px;border-bottom:1px solid var(--line);
         display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   .cross{display:inline-flex;align-items:center;gap:5px;background:var(--badge);
@@ -125,6 +130,8 @@
     <span class="title" id="cName">请选择城市</span>
     <span class="prov-tag" id="cProv"></span>
     <span class="spacer"></span>
+    <a class="credit" href="https://www.metroman.cn/maps" target="_blank" rel="noopener"
+       title="线网图来源：地铁通 MetroMan">图源：metroman.cn</a>
     <button class="btn" id="btnFit">适应窗口</button>
     <button class="btn" id="btnFull">全屏大图</button>
   </header>
